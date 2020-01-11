@@ -10,7 +10,7 @@ springcloud：
 查阅资料可知，其实springcloud其实也不算是什么很新奇的东西，只是把springboot又集成了，简单来说，就是一个springcloud项目，下面包含多个子springboot工程，这些子工程比较独立，可以相互调用，每个子工程的运行互不干涉，这些个子工程也成为一个微服务，springcloud的出现相当于只是更方便开发人员进行分布式系统开发，就像当时springboot的出现，也是对springMVC的整合一样，归根结底还是为了方便快速开发。
 
 提前准备： 
-新建空maven工程，工程删掉其他多余目录及文件，只保留.idea、pom.xml文件，然后新建两个springboot工程，这里为mdc-user、admin两个工程。
+新建空maven工程，工程删掉其他多余目录及文件，只保留.idea、pom.xml文件，然后新建两个springboot的module，这里为mdc-user、admin两个工程。
 
 1.版本介绍： 
 由于搭建此测试demo的时候，过程中出现了版本冲突，导致花费较长时间，这里呢建议，不要盲目复制粘贴，哈哈哈，建议直接git clone项目下来自己看，注：git clone下来直接跑一般都可以出结果，但是另外一个弊端是，看着都会，一自己来步步错，实则不会哈哈。 
