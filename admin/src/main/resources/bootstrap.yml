@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: admin-service
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 1000
+        readTimeout: 3000
+  hystrix:
+    enabled: true
