@@ -1,6 +1,6 @@
 # onway
 springcloud
-注：此分支为第一次测试代码！！！
+注：此分支为第一次测试代码！！！仅测试使用zookeeper、hystrix！！！
 
 前言： 
 以为有了spring基础，入门springcloud应该挺快，网上教程一大把，没想到却花了将近两天时间才搭出一个demo。 
