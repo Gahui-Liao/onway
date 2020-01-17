@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gahui.mdcuser.dao.AccountDao">
+    <resultMap id="accountDetailDtoMap" type="com.gahui.mdcuser.dto.AccountDetailDto">
+        <result column="account_id" jdbcType="BIGINT" property="accountId"/>
+        <result column="account_code" jdbcType="VARCHAR" property="accountCode"/>
+        <result column="account_name" jdbcType="VARCHAR" property="accountName"/>
+        <result column="account_password" jdbcType="VARCHAR" property="accountPassword"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="cert_id" jdbcType="BIGINT" property="certInfo.certId"/>
+        <result column="cert_code" jdbcType="VARCHAR" property="certInfo.certCode"/>
+        <result column="account_id_1" jdbcType="BIGINT" property="certInfo.accountId"/>
+        <result column="cert_type" jdbcType="TINYINT" property="certInfo.certType"/>
+        <result column="cert_number" jdbcType="VARCHAR" property="certInfo.certNumber"/>
+        <result column="cert_address" jdbcType="VARCHAR" property="certInfo.certAddress"/>
+        <result column="create_time_1" jdbcType="TIMESTAMP" property="certInfo.createTime"/>
+        <result column="update_time_1" jdbcType="TIMESTAMP" property="certInfo.updateTime"/>
+        <result column="remark_1" jdbcType="VARCHAR" property="certInfo.remark"/>
+        <result column="user_id" jdbcType="BIGINT" property="userInfo.userId"/>
+        <result column="user_code" jdbcType="VARCHAR" property="userInfo.userCode"/>
+        <result column="account_id_2" jdbcType="BIGINT" property="userInfo.accountId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userInfo.userName"/>
+        <result column="create_time_2" jdbcType="TIMESTAMP" property="userInfo.createTime"/>
+        <result column="update_time_2" jdbcType="TIMESTAMP" property="userInfo.updateTime"/>
+        <result column="remark_2" jdbcType="VARCHAR" property="userInfo.remark"/>
+        <collection property="addressList" ofType="com.gahui.mdcuser.entity.Address">
+            <result column="address_id" jdbcType="BIGINT" property="addressId"/>
+            <result column="address_code" jdbcType="VARCHAR" property="addressCode"/>
+            <result column="account_id_3" jdbcType="BIGINT" property="accountId"/>
+            <result column="address_region_id" jdbcType="BIGINT" property="addressRegionId"/>
+            <result column="address_content" jdbcType="VARCHAR" property="addressContent"/>
+            <result column="create_time_3" jdbcType="TIMESTAMP" property="createTime"/>
+            <result column="update_time_3" jdbcType="TIMESTAMP" property="updateTime"/>
+            <result column="remark_3" jdbcType="VARCHAR" property="remark"/>
+        </collection>
+
+    </resultMap>
+    <select id="listAccount" resultMap="accountDetailDtoMap">
+        select
+            t1.account_id,
+            t1.account_code,
+            t1.account_name,
+            t1.account_password,
+            t1.create_time,
+            t1.update_time,
+            t1.remark,
+            t2.cert_id,
+            t2.cert_code,
+            t2.account_id as account_id_1,
+            t2.cert_type,
+            t2.cert_number,
+            t2.cert_address,
+            t2.create_time as create_time_1,
+            t2.update_time as update_time_1,
+            t2.remark as remark_1,
+            t3.user_id,
+            t3.user_code,
+            t3.account_id as account_id_2,
+            t3.user_name,
+            t3.create_time as create_time_2,
+            t3.update_time as update_time_2,
+            t3.remark as remark_2,
+            t4.address_id,
+            t4.address_code,
+            t4.account_id as account_id_3,
+            t4.address_region_id,
+            t4.address_content,
+            t4.create_time as create_time_3,
+            t4.update_time as update_time_3,
+            t4.remark as remark_3
+        from account t1
+        left join cert t2 on t1.account_id = t2.account_id
+        left join user t3 on t1.account_id = t3.account_id
+        left join address t4 on t1.account_id = t4.account_id
+    </select>
+</mapper>

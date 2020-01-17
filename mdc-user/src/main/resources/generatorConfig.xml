@@ -45,7 +45,28 @@
 
         <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等 -->
         <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等 -->
-        <table tableName="order_item"
+        <table tableName="user"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="enabled" javaType="boolean"/>
+            <columnOverride column="expired" javaType="boolean"/>
+        </table>
+        <table tableName="cert"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="enabled" javaType="boolean"/>
+            <columnOverride column="expired" javaType="boolean"/>
+        </table>
+        <table tableName="account"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <columnOverride column="enabled" javaType="boolean"/>
+            <columnOverride column="expired" javaType="boolean"/>
+        </table>
+        <table tableName="address"
                enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">

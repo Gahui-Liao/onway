@@ -1,5 +1,6 @@
 package com.gahui.mdcuser;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -15,6 +16,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * 置于原因，肯定是spring已经默认啦！
  */
 @EnableDiscoveryClient
+@MapperScan(basePackages = {"com.gahui.mdcuser.mapper","com.gahui.mdcuser.dao"})
 public class MdcUserApplication {
 
     public static void main(String[] args) {

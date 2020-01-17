@@ -1,3 +1,33 @@
 # 设置服务器端口
 server:
   port: 8801
+
+# 配置数据源
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mdc-user?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: liaojiaxi
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      max-wait: 6000
+      min-evictable-idle-time-millis: 30000
+
+
+# 配置mybatis
+mybatis:
+  type-aliases-package: com.gahui.mdcuser.entity
+  mapper-locations:
+    - classpath*:mapper/*.xml
+    - classpath*:dao/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+# pagehelper分页
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  rowBoundsWithCount: true
+  offsetAsPageNum: true
